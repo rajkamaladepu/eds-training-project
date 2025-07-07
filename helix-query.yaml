@@ -1,0 +1,8 @@
+indices:
+  mysite:
+    include:
+      - /blog/**
+    target: /query-index.json
+    properties:
+      author:
+        value: "test"
