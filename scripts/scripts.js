@@ -26,15 +26,15 @@ let runExperimentation;
 let showExperimentationOverlay;
 const isExperimentationEnabled = document.head.querySelector('[name^="experiment"],[name^="campaign-"],[name^="audience-"],[property^="campaign:"],[property^="audience:"]')
     || [...document.querySelectorAll('.section-metadata div')].some((d) => d.textContent.match(/Experiment|Campaign|Audience/i));
+/* eslint-disable import/no-relative-packages */
 if (isExperimentationEnabled) {
-// eslint-disable-next-line import/no-unresolved
-  const experimentation = await import('@adobe/aem-experimentation/src/index.js');
+  const experimentation = await import('../plugins/experimentation/src/index.js');
   ({
     loadEager: runExperimentation,
     loadLazy: showExperimentationOverlay,
   } = experimentation);
 }
-
+/* eslint-disable import/no-relative-packages */
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
