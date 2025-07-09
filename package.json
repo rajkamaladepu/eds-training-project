@@ -28,6 +28,8 @@
     "stylelint-config-standard": "38.0.0"
   },
   "dependencies": {
-    "@adobe/aem-experimentation": "github:adobe/aem-experimentation"
+    "@adobe/aem-experimentation": "github:adobe/aem-experimentation",
+    "@playwright/test": "^1.53.2",
+    "monocart-coverage-reports": "^2.12.6"
   }
 }
