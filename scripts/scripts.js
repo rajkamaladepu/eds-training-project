@@ -30,7 +30,7 @@ if (isExperimentationEnabled) {
   ({
     loadEager: runExperimentation,
     loadLazy: showExperimentationOverlay,
-  } = await import('../plugins/experimentation/src/index.js'));
+  } = await import('@adobe/aem-experimentation/src/index.js'));
 }
 
 /**
@@ -94,11 +94,10 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  if (runExperimentation) {
+    await runExperimentation(document, experimentationConfig);
+  }
   const main = doc.querySelector('main');
-  // Add below snippet early in the eager phase
-	if (runExperimentation) {
-	  await runExperimentation(document, experimentationConfig);
-	}
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
@@ -132,10 +131,9 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
-  // Add below snippet at the end of the lazy phase
-   if (showExperimentationOverlay) {
-     await showExperimentationOverlay(document, experimentationConfig);
-   }
+  if (showExperimentationOverlay) {
+    await showExperimentationOverlay(document, experimentationConfig);
+  }
 }
 
 /**
