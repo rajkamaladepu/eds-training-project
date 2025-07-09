@@ -30,7 +30,7 @@ if (isExperimentationEnabled) {
   ({
     loadEager: runExperimentation,
     loadLazy: showExperimentationOverlay,
-  } = await import('@adobe/aem-experimentation/src/index.js'));
+  } = await import('../plugins/experimentation/src/index.js'));
 }
 
 /**
