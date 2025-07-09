@@ -1,3 +1,18 @@
+import {
+  buildBlock,
+  loadHeader,
+  loadFooter,
+  decorateButtons,
+  decorateIcons,
+  decorateSections,
+  decorateBlocks,
+  decorateTemplateAndTheme,
+  waitForFirstImage,
+  loadSection,
+  loadSections,
+  loadCSS,
+} from './aem.js';
+
 const experimentationConfig = {
   prodHost: 'www.my-site.com',
   audiences: {
@@ -15,24 +30,8 @@ if (isExperimentationEnabled) {
   ({
     loadEager: runExperimentation,
     loadLazy: showExperimentationOverlay,
-  } = await import('../plugins/experimentation/src/index.js'));
+  } = await import('@adobe/aem-experimentation/src/index.js'));
 }
-
-import {
-  buildBlock,
-  loadHeader,
-  loadFooter,
-  decorateButtons,
-  decorateIcons,
-  decorateSections,
-  decorateBlocks,
-  decorateTemplateAndTheme,
-  waitForFirstImage,
-  loadSection,
-  loadSections,
-  loadCSS,
-} from './aem.js';
-
 
 /**
  * Builds hero block and prepends to main in a new section.
