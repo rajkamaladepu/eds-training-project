@@ -26,7 +26,8 @@ let runExperimentation;
 let showExperimentationOverlay;
 const isExperimentationEnabled = document.head.querySelector('[name^="experiment"],[name^="campaign-"],[name^="audience-"],[property^="campaign:"],[property^="audience:"]')
     || [...document.querySelectorAll('.section-metadata div')].some((d) => d.textContent.match(/Experiment|Campaign|Audience/i));
-if (isExperimentationEnabled) {
+	// eslint-disable-next-line import/no-unresolved
+	if (isExperimentationEnabled) {
   ({
     loadEager: runExperimentation,
     loadLazy: showExperimentationOverlay,
